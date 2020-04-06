@@ -1,0 +1,28 @@
+<%- include("partials/header") %>
+
+<div class='form'>
+
+<div class='regform'>
+	
+	
+	
+<h1> Login page </h1>
+
+<form class='inputForm' action = "/login"  method="POST">
+	<input name="username" type="text" placeholder="username"> 
+	<input name="password" type="password" placeholder="pass"> 
+	<button>
+		Login 
+	</button>
+	<% if (currentUser) { %>
+<a href = "/logout"> Log Out</a>
+<% } else { %>	
+<a href = "/register"> Register </a>
+<% } %>
+</form>
+
+ </div>
+	
+</div>
+
+<%- include("partials/footer") %>

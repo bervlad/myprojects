@@ -1,0 +1,27 @@
+
+<%	if (currentUser.friends.includes (user._id.toString()) ) {%>
+
+
+
+<%= user.username; %>
+
+	
+<div class='right'>
+	
+
+
+		<form  method= "POST"  action= '/friends/remove/<%=user._id%>' >
+		
+		
+
+			<span> friends </span>
+			<button > Remove friend </button>
+				
+		</form>	
+	
+	</div>
+			
+
+
+	
+		<%} %>

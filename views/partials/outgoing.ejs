@@ -1,0 +1,20 @@
+		
+	<%	if (currentUser.outgoing.includes (user._id.toString())) { %>
+
+
+<%= user.username; %> 
+	
+
+
+
+<div class='right'>
+<form method= "POST"  action= '/friends/cancelRequest/<%=user._id%>' >
+			
+				<span>pending request </span>
+				<button > Cancel request </button>
+			
+	
+			</form>	
+	</div>
+
+		<%} %>

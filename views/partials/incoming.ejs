@@ -1,0 +1,22 @@
+	
+	<%	if (currentUser.incoming.includes (user._id.toString()) ) {%>
+	
+<%= user.username; %>
+ 
+<div class='right'>
+	
+
+
+		<form  method= "POST"  action= '/friends/accept/<%=user._id%>' >
+			
+			<button  > Accept </button>
+		</form>	
+	
+		<form   method= "POST"  action= '/friends/ignore/<%=user._id%>' >
+			<button > Ignore </button>
+		</form>	
+	
+	</div>
+
+
+		<%} %>

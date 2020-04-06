@@ -1,0 +1,61 @@
+<%- include("partials/header") %>
+
+<div class = "form">
+	
+<h1> Friends </h1>
+
+<% if (currentUser.incoming.length>0) { %>
+<h2> Incoming </h2>
+<% } %>
+
+<% users.forEach ( function (user) { %>
+<% if (currentUser.username !== user.username && !currentUser.ignored.includes(user._id.toString() )  ) { %>
+
+
+<% if (currentUser.incoming.includes (user._id.toString())) { %>
+<div class='element'>
+<%- include("partials/incoming", {user:user}); %>	
+</div>
+<% } %>
+<% } }) %>
+
+<% if (currentUser.outgoing.length>0) { %>
+<h2> Outgoing </h2>
+<% } %>
+
+<% users.forEach ( function (user) { %>
+<% if (currentUser.username !== user.username && !currentUser.ignored.includes(user._id.toString() )) { %>
+
+<% if (currentUser.outgoing.includes (user._id.toString())) { %>
+<div class='element'>
+<%- include("partials/outgoing", {user:user}); %>	
+</div>
+<% } %>
+<% } }) %>
+
+
+<% if (currentUser.friends.length>0) { %>
+<h2> Friends </h2>
+<% } %>
+
+<% users.forEach ( function (user) { %>
+<% if (currentUser.username !== user.username && !currentUser.ignored.includes(user._id.toString() ) ) { %>
+
+<% if (currentUser.friends.includes (user._id.toString())) { %>
+<div class='element'>
+<%- include("partials/friends", {user:user}); %>	
+</div>
+<% } %>
+<% } }) %>
+
+<% if (currentUser) { %>
+<p> <a href = "/Users"> Users</a> </p>
+<p> <a href = "/logout"> Log Out</a> </p>
+<% } else { %>
+<p><a href = "/register"> Register </a> </p>
+<p><a href = "/login"> Log In </a> </p>
+<% } %>
+
+</div>
+
+<%- include("partials/footer") %>

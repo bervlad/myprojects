@@ -1,0 +1,66 @@
+<%- include("partials/header") %>
+
+
+<div class = "form">
+	
+	<div class='regform'>
+
+<h1>
+	Users
+</h1>
+
+		
+
+<form class='inputForm' method="POST" action="/getuser">
+<input type="search" id="site-search" name="user">
+<button>Search</button>	
+</form>
+		
+		</div>
+	
+	<hr>
+
+<% users.forEach ( function (user) { %>
+
+<% if (currentUser.username !== user.username && !currentUser.ignored.includes(user._id.toString() )) { %>
+
+	<div class = "element">
+		
+	<!-- NO FRIEND -->
+		
+	<%- include("partials/nofriend", {user:user}); %>
+		
+	<!-- FRIEND REQUESTED -->
+
+	<%- include("partials/outgoing", {user:user}); %>
+	
+	<!-- FRIEND INCOMING -->
+		
+	<%- include("partials/incoming", {user:user}); %>
+	
+	<!-- FRIEND INCLUDED-->
+		
+	<%- include("partials/friends", {user:user}); %>
+	
+	</div>
+
+	<% } %>
+	
+
+
+	<% }) %> 
+
+
+<% if (currentUser) { %>
+<p> <a href = "/Friends"> Friends</a> </p>
+<p> <a href = "/logout"> Log Out</a> </p>
+<% } else { %>
+<p><a href = "/register"> Register </a> </p>
+<p><a href = "/login"> Log In </a> </p>
+<% } %>
+
+</div>
+	
+
+
+<%- include("partials/footer") %>

@@ -1,0 +1,14 @@
+	
+<%	if (!currentUser.friends.includes (user._id.toString()) && !currentUser.outgoing.includes (user._id.toString()) && !currentUser.incoming.includes (user._id.toString())) { %>
+
+<%= user.username; %> 
+
+
+<div class='right'>
+			<form  method= "POST"  action= '/friends/request/<%=user._id%>' >
+				
+				<button class='elButton'> Add friend </button>
+			</form>	
+
+</div>
+		<%} %>
